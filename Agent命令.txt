@@ -1,18 +1,37 @@
-Init + Push + Ignore：把这个文件夹初始化成git项目，并且推送到GitHub上面，注意把不需要的内容排除掉。
-Commit - 提交本次更改
-    reset: 把仓库还原到 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 这次提交状态，后面的所有改动都不要了。
-    revert: ffe02fa25ff9eb3f9cc931961809d07f32c8b330，把这一次提交撤销掉，其他保持不变。
-    diff: 比较一下 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 比 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 提交修改了什么内容
-Branch - 从主干的某次提交开始进入分支开发线
-    merge: 将在分支的修改合并回主干
-    merge后删除分支
-WorkTree - 复制主干文件夹创建分支文件夹，并行工作，改动互不影响。
-         - 相比branch必须选择一个分支运行/修改，worktree可以同时运行对比
-    merge: 将分支文件夹合并回主干文件夹
-    merge conflict: 两个worktree的改动有冲突
-    merge后删除worktree
-Git分区 - Working Directory + Local Repository + Remote Repository
-    clone: Remote 复制到 Working
-    commit: Working 到 Local
-    push: Local 到 Remote
-    pull: Remote 同步到 Working
+Git 与 GitHub Agent 提示词手册
+
+    Git 分区与基本生命周期
+        Clone   远程仓库复制到本地工作区
+        Commit  工作区提交到本地仓库
+        Push    本地仓库推送到远程仓库
+        Pull    远程仓库同步到本地工作区
+
+    项目初始化与首次推送
+        “把当前文件夹初始化为 Git 项目并推送到 GitHub 上 排除不需要的 node_modules 和日志文件”
+
+    版本提交管理 (针对某次特定提交 ffe02fa25ff9eb3f9cc931961809d07f32c8b330)
+        回退版本
+            “把仓库还原到 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 这次提交状态 后面的所有改动都不要了”
+        撤销提交
+            “把 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 这一次提交安全地撤销掉 其它保持不变”
+        比对改动
+            “比较一下 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 和 另一个提交 看看这两个版本改动了什么内容”
+
+    分支开发流
+        新建与合并
+            “帮我从当前主干拉出一个新分支 开发完成后合并回主干 并自动把这个新分支删掉”
+
+    多工作区并行开发 (WorkTree)
+        创建分支工作树
+            “复制主干文件夹并创建一个分支工作区 让我能够并行运行或对比这两个物理文件夹 保证改动互不影响”
+        合并分支并清理
+            “把分支工作区的修改合并回主干 合并完后删除这个分支工作区和对应的分支”
+        解决冲突
+            “把这两个工作区合并 如果遇到冲突请列出来让我选择如何处理”
+
+    多人协作与开源贡献
+        避开冲突黄金法则
+            在向原项目提交 Pull Request 之前 先把原项目的最新代码同步到自己的本地分支 解决冲突后再提交
+        同步母项目最新改动
+            “母项目地址是 https://github.com/stephentangzizhong/test-remote.git 
+            请把母项目最新改动合并进当前分支 如果有冲突让我选择如何处理”
