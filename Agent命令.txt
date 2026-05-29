@@ -1,4 +1,18 @@
 Init + Push + Ignore：把这个文件夹初始化成git项目，并且推送到GitHub上面，注意把不需要的内容排除掉。
-Reset: 把仓库还原到 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 这次提交状态，后面的所有改动都不要了。
-Revert: ffe02fa25ff9eb3f9cc931961809d07f32c8b330，把这一次提交撤销掉，其他保持不变。
-diff: 比较一下 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 比 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 提交修改了什么内容
+Commit - 提交本次更改
+    reset: 把仓库还原到 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 这次提交状态，后面的所有改动都不要了。
+    revert: ffe02fa25ff9eb3f9cc931961809d07f32c8b330，把这一次提交撤销掉，其他保持不变。
+    diff: 比较一下 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 比 ffe02fa25ff9eb3f9cc931961809d07f32c8b330 提交修改了什么内容
+Branch - 从主干的某次提交开始进入分支开发线
+    merge: 将在分支的修改合并回主干
+    merge后删除分支
+WorkTree - 复制主干文件夹创建分支文件夹，并行工作，改动互不影响。
+         - 相比branch必须选择一个分支运行/修改，worktree可以同时运行对比
+    merge: 将分支文件夹合并回主干文件夹
+    merge conflict: 两个worktree的改动有冲突
+    merge后删除worktree
+Git分区 - Working Directory + Local Repository + Remote Repository
+    clone: Remote 复制到 Working
+    commit: Working 到 Local
+    push: Local 到 Remote
+    pull: Remote 同步到 Working
